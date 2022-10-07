@@ -103,12 +103,14 @@ public class ShipsManager : MonoBehaviour
 
     void CenterMainShip()
     {
+        CentredShip = true;
         mainShipAnimator.SetBool("Centred", true);
         PointsManager.multiplicator = -2;
     }
 
     void ResetMainShip()
     {
+        CentredShip = false;
         mainShipAnimator.SetBool("Centred", false);
         PointsManager.multiplicator = 1;
     }
