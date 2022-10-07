@@ -59,6 +59,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 686564609051392028}
     m_Modifications:
+    - target: {fileID: 1649303190219966188, guid: 018a074f216157c4ab4bffad7cbd8766, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3462641442384295849, guid: 018a074f216157c4ab4bffad7cbd8766, type: 3}
       propertyPath: m_Name
       value: VoidSection (4)
@@ -137,6 +141,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 686564609051392028}
     m_Modifications:
+    - target: {fileID: 1649303190219966188, guid: 018a074f216157c4ab4bffad7cbd8766, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3462641442384295849, guid: 018a074f216157c4ab4bffad7cbd8766, type: 3}
       propertyPath: m_Name
       value: VoidSection (6)
@@ -215,6 +223,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 686564609051392028}
     m_Modifications:
+    - target: {fileID: 1649303190219966188, guid: 018a074f216157c4ab4bffad7cbd8766, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3462641442384295849, guid: 018a074f216157c4ab4bffad7cbd8766, type: 3}
       propertyPath: m_Name
       value: VoidSection (7)
@@ -293,6 +305,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 686564609051392028}
     m_Modifications:
+    - target: {fileID: 1649303190219966188, guid: 018a074f216157c4ab4bffad7cbd8766, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3462641442384295849, guid: 018a074f216157c4ab4bffad7cbd8766, type: 3}
       propertyPath: m_Name
       value: VoidSection (1)
@@ -371,6 +387,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 686564609051392028}
     m_Modifications:
+    - target: {fileID: 1649303190219966188, guid: 018a074f216157c4ab4bffad7cbd8766, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3462641442384295849, guid: 018a074f216157c4ab4bffad7cbd8766, type: 3}
       propertyPath: m_Name
       value: VoidSection (3)
@@ -449,6 +469,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 686564609051392028}
     m_Modifications:
+    - target: {fileID: 1649303190219966188, guid: 018a074f216157c4ab4bffad7cbd8766, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3462641442384295849, guid: 018a074f216157c4ab4bffad7cbd8766, type: 3}
       propertyPath: m_Name
       value: VoidSection
@@ -527,6 +551,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 686564609051392028}
     m_Modifications:
+    - target: {fileID: 1649303190219966188, guid: 018a074f216157c4ab4bffad7cbd8766, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3462641442384295849, guid: 018a074f216157c4ab4bffad7cbd8766, type: 3}
       propertyPath: m_Name
       value: VoidSection (5)
@@ -605,6 +633,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 686564609051392028}
     m_Modifications:
+    - target: {fileID: 1649303190219966188, guid: 018a074f216157c4ab4bffad7cbd8766, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3462641442384295849, guid: 018a074f216157c4ab4bffad7cbd8766, type: 3}
       propertyPath: m_Name
       value: VoidSection (2)

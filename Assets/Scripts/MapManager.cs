@@ -13,6 +13,11 @@ public class MapManager : MonoBehaviour
 
 
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        RotateMap(1f);
+    }
     void Start()
     {
         ShipColisionDetector.Collided += OnCollidedHandler;
@@ -40,22 +45,15 @@ public class MapManager : MonoBehaviour
                 
 
             TranslateMap();
-            RotateMap2();
+            RotateMap(smoothness);
         }
                 
     }
 
-    void RotateMap2()
+    void RotateMap(float smoothness)
     {
         desiredAngleQ = Quaternion.Euler(desiredAngleV);
         pivot.transform.rotation = Quaternion.Slerp(pivot.transform.rotation, desiredAngleQ, smoothness);
-    }
-
-    void RotateMap(float degrees)
-    {
-        //pivot.transform.localRotation *= Quaternion.Euler(degrees, 0, 0);
-        //pivot.transform.localRotation *= Quaternion.Lerp(pivot.transform.localRotation, Quaternion.Euler(degrees, 0, 0), 1f);
-
     }
 
     void TranslateMap()

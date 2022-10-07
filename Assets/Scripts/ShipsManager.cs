@@ -15,9 +15,6 @@ public class ShipsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        MainShipOriginarPosition = mainShip.transform.position;
-
         mainShipAnimator = mainShip.GetComponent<Animator>();
 
     }

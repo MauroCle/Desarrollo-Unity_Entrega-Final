@@ -9700,8 +9700,9 @@ GameObject:
   - component: {fileID: 6422318469869010812}
   - component: {fileID: 6422318469869010815}
   - component: {fileID: 6422318469869010813}
-  - component: {fileID: 2120735107562791122}
   - component: {fileID: 2120735107562791118}
+  - component: {fileID: 2120735107562791122}
+  - component: {fileID: 2742496732046059993}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Player
@@ -9755,7 +9756,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.001
+  m_Radius: 0.0005
   m_Height: 0.005
   m_Direction: 1
   m_Center: {x: 0, y: 0.0455, z: 0}
@@ -9821,6 +9822,21 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &2120735107562791118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4922141679788095095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0121c2a508c2c3f4491cf6381948e76c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionEffect: {fileID: 638644645458048156}
+  propeller: {fileID: 1063625181513387708}
+  mesh: {fileID: 4560081915619788021}
 --- !u!95 &2120735107562791122
 Animator:
   serializedVersion: 4
@@ -9841,7 +9857,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2120735107562791118
+--- !u!114 &2742496732046059993
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
