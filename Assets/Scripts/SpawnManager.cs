@@ -4,11 +4,23 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    public static SpawnManager instancia;
     public GameObject spawned;
     public int safeChance = 30;
     public bool easierOnFast = true;
     public float easierMultiplicator = 1.5f;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        if (instancia == null)
+        {
+            instancia = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+            Destroy(gameObject);
+    }
+
     void Start()
     {
         SectionManager.Delete += NewInstance;

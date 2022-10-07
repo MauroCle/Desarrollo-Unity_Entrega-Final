@@ -36,4 +36,9 @@ public class ShipColisionDetector : MonoBehaviour
         propeller.gameObject.SetActive(false);
         mesh.SetActive(false);
     }
+
+    private void OnDisable()
+    {
+        GameManager.onGameOver -= PlayerDeath;
+    }
 }
