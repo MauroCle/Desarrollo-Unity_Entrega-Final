@@ -5,17 +5,21 @@ using UnityEngine;
 public class ShipsManager : MonoBehaviour
 {
     public GameObject mainShip;
-    Vector3 MainShipOriginarPosition;
     public GameObject topShip;
     public GameObject[] lateralShips = new GameObject[2];
     bool topShipState = false;
     bool lateralShipsState = false;
     bool CentredShip = false;
+    Animator mainShipAnimator;
 
     // Start is called before the first frame update
     void Start()
     {
+
         MainShipOriginarPosition = mainShip.transform.position;
+
+        mainShipAnimator = mainShip.GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -103,16 +107,15 @@ public class ShipsManager : MonoBehaviour
 
     void CenterMainShip()
     {
-        Transform aux = mainShip.transform;
-        mainShip.transform.position = new Vector3(aux.position.x, 2.97801f, aux.position.z);
         CentredShip = true;
+        mainShipAnimator.SetBool("Centred", true);
         PointsManager.multiplicator = -2;
     }
 
     void ResetMainShip()
     {
-        mainShip.transform.position = MainShipOriginarPosition;
         CentredShip = false;
+        mainShipAnimator.SetBool("Centred", false);
         PointsManager.multiplicator = 1;
     }
 }
