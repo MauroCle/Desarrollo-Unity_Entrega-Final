@@ -5,7 +5,6 @@ using UnityEngine;
 public class ShipsManager : MonoBehaviour
 {
     public GameObject mainShip;
-    Vector3 MainShipOriginarPosition;
     public GameObject topShip;
     public GameObject[] lateralShips = new GameObject[2];
     bool topShipState = false;
@@ -16,7 +15,6 @@ public class ShipsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MainShipOriginarPosition = mainShip.transform.position;
         mainShipAnimator = mainShip.GetComponent<Animator>();
     }
 
