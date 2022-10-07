@@ -4,39 +4,58 @@ using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
-    float RotationsDegrees = 45;
+    float rotationsDegrees = 45;
     public GameObject pivot;
     public GameObject spawned;
-
+    public float smoothness;
+    private Vector3 desiredAngleV = Vector3.zero;
+    private Quaternion desiredAngleQ;
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        ShipColisionDetector.Collided += OnCollidedHandler;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-            PauseMap(GameManager.Pause);
+            PauseMap();
 
         if (!GameManager.Pause)
         {
             if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
-                RotateMap(RotationsDegrees * -1);
-
+            {
+                //RotateMap(RotationsDegrees * -1);
+                desiredAngleV += new Vector3(-rotationsDegrees, 0, 0);
+            }
+                
             if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-                RotateMap(RotationsDegrees);
+            {   
+                //RotateMap(RotationsDegrees);
+                desiredAngleV += new Vector3(rotationsDegrees, 0, 0);
+            }
+                
 
             TranslateMap();
+            RotateMap2();
         }
+                
+    }
+
+    void RotateMap2()
+    {
+        desiredAngleQ = Quaternion.Euler(desiredAngleV);
+        pivot.transform.rotation = Quaternion.Slerp(pivot.transform.rotation, desiredAngleQ, smoothness);
     }
 
     void RotateMap(float degrees)
     {
-    pivot.transform.localRotation *= Quaternion.Euler(degrees, 0, 0);
+        //pivot.transform.localRotation *= Quaternion.Euler(degrees, 0, 0);
+        //pivot.transform.localRotation *= Quaternion.Lerp(pivot.transform.localRotation, Quaternion.Euler(degrees, 0, 0), 1f);
+
     }
 
     void TranslateMap()
@@ -44,19 +63,24 @@ public class MapManager : MonoBehaviour
         spawned.transform.Translate(new Vector3(10,0,0) * Time.deltaTime * GameManager.Speed);
     }
 
-    void PauseMap(bool state)
+    void PauseMap()
     {
-        if(state == false)
+        if(GameManager.Pause == false)
         {
             //lastSpeed = GameManager.Speed;
            // GameManager.Speed = 0;
             GameManager.Pause = true;
         }
-        else
+        else if (GameManager.Pause == true && GameManager.GameEnded == false)
         {
-           // GameManager.Speed = lastSpeed;
+            // GameManager.Speed = lastSpeed;
             GameManager.Pause = false;
         }
+    }
+
+    void OnCollidedHandler()
+    {
+        Invoke("PauseMap", .1f);
     }
 
 }

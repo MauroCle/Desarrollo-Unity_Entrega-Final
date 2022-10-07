@@ -15,7 +15,11 @@ public class ShipsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        MainShipOriginarPosition = mainShip.transform.position;
+
         mainShipAnimator = mainShip.GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -25,13 +29,13 @@ public class ShipsManager : MonoBehaviour
         {
             if (!CentredShip)
             {
-                if (Input.GetKeyDown(KeyCode.Q))
+                if (Input.GetKeyDown(KeyCode.Mouse1))
                     DespawnLastShip();
 
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.Mouse0))
                     SpawnShips();
 
-                if (Input.GetKeyDown(KeyCode.F))
+                if (Input.GetKeyDown(KeyCode.Space))
                     DespawnAllShips();
             }
 
@@ -114,6 +118,4 @@ public class ShipsManager : MonoBehaviour
         mainShipAnimator.SetBool("Centred", false);
         PointsManager.multiplicator = 1;
     }
-
-
 }
