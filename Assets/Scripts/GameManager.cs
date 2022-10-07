@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instancia;
+    public static Action onGameOver;
 
     public List<GameObject> tiles = new List<GameObject>();
     static public List<GameObject> staticTiles = new List<GameObject>();
@@ -19,6 +21,11 @@ public class GameManager : MonoBehaviour
 
     public int points;
 
+    private static bool gameEnded = false;
+
+    public static bool GameEnded { get => gameEnded; set => gameEnded = value; }
+
+
     private void Awake()
     {
         if (instancia == null)
@@ -27,6 +34,8 @@ public class GameManager : MonoBehaviour
         }
         else
             Destroy(gameObject);
+
+        ShipColisionDetector.Collided += GameOver;
     }
     // Start is called before the first frame update
     void Start()
@@ -41,7 +50,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (gameEnded)
+        {
+            onGameOver?.Invoke();
+        }
     }
 
     void SpeedUp()
@@ -53,5 +65,10 @@ public class GameManager : MonoBehaviour
     public void UpdatePoints()
     {
         points = PointsManager.lastUpdate;
+    }
+
+    void GameOver()
+    {
+        gameEnded = true;
     }
 }
