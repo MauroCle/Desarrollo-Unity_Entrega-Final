@@ -2355,6 +2355,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3969180214320201931, guid: 2b826e7713c5f374fae70d40d1d3f189, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560081915619788021, guid: 2b826e7713c5f374fae70d40d1d3f189, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4922141679788095095, guid: 2b826e7713c5f374fae70d40d1d3f189, type: 3}
       propertyPath: m_Name
       value: Ship
