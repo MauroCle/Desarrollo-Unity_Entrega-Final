@@ -61,7 +61,7 @@ public class MapManager : MonoBehaviour
         spawned.transform.Translate(new Vector3(10,0,0) * Time.deltaTime * GameManager.Speed);
     }
 
-    void PauseMap()
+    public void PauseMap()
     {
         if(GameManager.Pause == false)
         {

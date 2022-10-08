@@ -43,4 +43,8 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        SectionManager.Delete -= NewInstance;
+    }
 }
