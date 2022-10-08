@@ -84,9 +84,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6581810307948044586}
     m_Modifications:
+    - target: {fileID: 3165216295453934345, guid: 018a074f216157c4ab4bffad7cbd8766, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: eea93a852189f7943b201ce9f7e0d43e, type: 2}
     - target: {fileID: 3462641442384295849, guid: 018a074f216157c4ab4bffad7cbd8766, type: 3}
       propertyPath: m_Name
       value: VoidSection
+      objectReference: {fileID: 0}
+    - target: {fileID: 7554487660422226524, guid: 018a074f216157c4ab4bffad7cbd8766, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7554487660422226524, guid: 018a074f216157c4ab4bffad7cbd8766, type: 3}
       propertyPath: m_IsTrigger

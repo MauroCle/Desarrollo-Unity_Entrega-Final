@@ -46,4 +46,10 @@ public class PauseMenu : MonoBehaviour
         GameManager.GameEnded = false;
         GameManager.Pause = false;
     }
+
+    public void ContinuePlay()
+    {
+        pausePanel.SetActive(false);
+        GameManager.Pause = false;
+    }
 }

@@ -288,12 +288,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tiles:
   - {fileID: 4052068772004786878, guid: 4da4249976156dc40a3b028c2487500d, type: 3}
-  - {fileID: 4052068772004786878, guid: cb82688edc0213746b1ce9278aad3d82, type: 3}
-  - {fileID: 4052068772004786878, guid: 5778f9360dc8e334480c9e9907b7cb77, type: 3}
-  - {fileID: 4052068772004786878, guid: dbf3d024f6abc5f42a4be10681697d45, type: 3}
-  - {fileID: 4052068772004786878, guid: 001720a95ba50bc48871cf30dc0ce9f1, type: 3}
-  - {fileID: 4052068772004786878, guid: d9502c510f1b98848b844010da6a436c, type: 3}
-  - {fileID: 4052068772004786878, guid: 91c502c92ea2a0b4dbab6f3b24a98585, type: 3}
   - {fileID: 4052068772004786878, guid: e50fa21a74819b84e91c45a6bfea669d, type: 3}
   - {fileID: 4052068772004786878, guid: 9a93cd589e559434e8c878def417d935, type: 3}
   - {fileID: 4052068772004786878, guid: b3a21be7b74cbfd4cb4300b6f84efae1, type: 3}
@@ -305,9 +299,9 @@ MonoBehaviour:
   - {fileID: 4052068772004786878, guid: 11bbf2a607eca9e4f9709efcaac2df92, type: 3}
   - {fileID: 4052068772004786878, guid: 7fd34509fd522334c8bfe54fe3a4c03e, type: 3}
   - {fileID: 4052068772004786878, guid: 8187b6e13fd62644387e219f34a5ddf7, type: 3}
-  - {fileID: 4052068772004786878, guid: 58b26682d56d65742b36268dde6a34c2, type: 3}
-  - {fileID: 4052068772004786878, guid: 16b6a8abcdd4d384dbe0f06a98a75987, type: 3}
-  - {fileID: 4052068772004786878, guid: a10d308f917769048a2d3b6e0f086316, type: 3}
+  - {fileID: 4052068772004786878, guid: 11bbf2a607eca9e4f9709efcaac2df92, type: 3}
+  - {fileID: 4052068772004786878, guid: 7fd34509fd522334c8bfe54fe3a4c03e, type: 3}
+  - {fileID: 4052068772004786878, guid: 8187b6e13fd62644387e219f34a5ddf7, type: 3}
   points: 0
 --- !u!4 &93162726
 Transform:
@@ -2404,9 +2398,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
-        m_MethodName: PauseMap
+      - m_Target: {fileID: 268639116}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: ContinuePlay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

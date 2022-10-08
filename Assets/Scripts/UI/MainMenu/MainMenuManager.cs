@@ -82,17 +82,23 @@ public class MainMenuManager : MonoBehaviour
 
     public void OnClicEasy()
     {
-        // TODO
+        GameManager.Pause = false;
+        GameManager.GameEnded = false;
+        SceneManager.LoadScene("Easy");
     }
 
     public void OnClicNormal()
     {
-        // TODO
+        GameManager.Pause = false;
+        GameManager.GameEnded = false;
+        SceneManager.LoadScene("Normal");
     }
 
     public void OnClicHard()
     {
-        // TODO
+        GameManager.Pause = false;
+        GameManager.GameEnded=false;
+        SceneManager.LoadScene("Hard");
     }
 
     public void OnChangeMusicVolume()
