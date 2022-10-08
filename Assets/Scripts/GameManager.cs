@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
     private static bool gameEnded = false;
 
     public static bool GameEnded { get => gameEnded; set => gameEnded = value; }
+    public static float MusicVolume { get => musicVolume; set => musicVolume = value; }
+
+    private static float musicVolume=50;
 
 
     private void Awake()

@@ -2,16 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
     public List<GameObject> HideableMainMenu = new List<GameObject>();
-    public List<GameObject> HideableSubMenu = new List<GameObject>();
+    public List<GameObject> hideableSubMenu = new List<GameObject>();
+    public Slider musicVolumeSlide;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        ChangeMainMenuState(true);
+        ChangeSubMenuState(false);
+        musicVolumeSlide.value = GameManager.MusicVolume;
     }
 
     // Update is called once per frame
@@ -30,7 +34,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void ChangeSubMenuState(bool nextState)
     {
-        foreach (var item in HideableSubMenu)
+        foreach (var item in hideableSubMenu)
         {
             item.gameObject.SetActive(nextState);
         }
@@ -39,17 +43,17 @@ public class MainMenuManager : MonoBehaviour
     public void ChangeSubMenuState(bool nextState, string gameobjectName)
     {
 
-        foreach (var item in HideableSubMenu)
+        foreach (var item in hideableSubMenu)
         {
-            if(item.gameObject.name == gameobjectName)
-            item.gameObject.SetActive(nextState);
+            if (item.gameObject.name == gameobjectName)
+                item.gameObject.SetActive(nextState);
         }
     }
 
     public void OnClicControls()
     {
         ChangeMainMenuState(false);
-
+        ChangeSubMenuState(true, "Controls");
         //  TODO
     }
 
@@ -61,11 +65,19 @@ public class MainMenuManager : MonoBehaviour
         //  TODO
     }
 
+    public void OnCloseControls()
+    {
+        ChangeMainMenuState(true);
+        ChangeSubMenuState(false, "Controls");
+
+        //  TODO
+    }
+
     public void OnClicPlay()
     {
         ChangeMainMenuState(false);
 
-        ChangeSubMenuState(true,"Level selector");  
+        ChangeSubMenuState(true, "Level selector");
     }
 
     public void OnClicEasy()
@@ -81,5 +93,10 @@ public class MainMenuManager : MonoBehaviour
     public void OnClicHard()
     {
         // TODO
+    }
+
+    public void OnChangeMusicVolume()
+    {
+        GameManager.MusicVolume = musicVolumeSlide.value;
     }
 }
