@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -40,17 +41,21 @@ public class GameManager : MonoBehaviour
 
         ShipColisionDetector.Collided += GameOver;
     }
-    // Start is called before the first frame update
+
+
     void Start()
     {
         SectionManager.Delete += SpeedUp;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
         foreach (var item in tiles)
         {
             staticTiles.Add(item);
         }
+                
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (gameEnded)
@@ -73,5 +78,15 @@ public class GameManager : MonoBehaviour
     void GameOver()
     {
         gameEnded = true;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        speed = .5f;
+    }
+
+    private void OnDisable()
+    {
+        ShipColisionDetector.Collided += GameOver;
     }
 }

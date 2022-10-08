@@ -2,22 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class PointsManager : MonoBehaviour
 {
-    float points;
+    public static float points;
     public static int lastUpdate = 0;
     public UnityEvent updatePoints;
     public int updateFrequency = 1;
-    public static int multiplicator=1; 
+    public static int multiplicator=1;
 
-    // Start is called before the first frame update
+
     void Start()
     {
-
+        SceneManager.sceneLoaded += resetScore;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (!GameManager.Pause)
@@ -42,4 +42,9 @@ public class PointsManager : MonoBehaviour
         updatePoints?.Invoke();
     }
 
+    void resetScore(Scene scene, LoadSceneMode mode)
+    {
+        points = 0;
+        multiplicator = 1;
+    }
 }

@@ -81,4 +81,9 @@ public class MapManager : MonoBehaviour
         Invoke("PauseMap", .1f);
     }
 
+    private void OnDisable()
+    {
+        ShipColisionDetector.Collided -= OnCollidedHandler;
+    }
+
 }
