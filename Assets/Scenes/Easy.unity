@@ -302,6 +302,8 @@ MonoBehaviour:
   - {fileID: 4052068772004786878, guid: 11bbf2a607eca9e4f9709efcaac2df92, type: 3}
   - {fileID: 4052068772004786878, guid: 7fd34509fd522334c8bfe54fe3a4c03e, type: 3}
   - {fileID: 4052068772004786878, guid: 8187b6e13fd62644387e219f34a5ddf7, type: 3}
+  globalVolume: {fileID: 1369249317}
+  DistorionAdjustment: -20
   points: 0
 --- !u!4 &93162726
 Transform:
@@ -2494,7 +2496,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &705507994
 Light:
   m_ObjectHideFlags: 0
