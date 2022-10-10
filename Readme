@@ -1,0 +1,14 @@
+Categoría: 
+Casual / Arcade
+Buscamos una estética Sci-fi Neón / Vaporwave.
+
+Descripción del juego:
+El jugador debe evitar los obstáculos mientras avanza por un túnel que se genera con ciertos parámetros aleatorios, intentando sobrevivir y mantener la mayor cantidad de puntos posibles mientras que gana velocidad.
+
+Cada nivel tiene una configuración de assets para presentar dificultad según los obstáculos generados.
+El jugador puede realizar acciones arriesgadas para lograr puntos extra o evitar el peligro momentáneamente a cambio de perder cierta cantidad de puntos.
+
+En el menú principal se encuentra un menú donde se aclaran los controles del juego junto a una selección de dificultad y un control para el audio.
+
+El jugador puede pausar el juego con la tecla ESC para volver al menú principal o regular el sonido. En caso de colisionar con los obstáculos tendrá un menú similar junto a la opción de volver a iniciar la partida reiniciando los contadores de puntos.
+Los highscore se mantienen entre sesiones de juego.
