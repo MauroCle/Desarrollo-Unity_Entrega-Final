@@ -29,6 +29,7 @@ public class ShipColisionDetector : MonoBehaviour
         explosionEffect.gameObject.SetActive(true);
         propeller.gameObject.SetActive(false);
         mesh.SetActive(false);
+        
     }
 
     private void OnDisable()

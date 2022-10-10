@@ -9,13 +9,16 @@ public class AudioControler : MonoBehaviour
     public Slider LoseVolumeSlide;
     public static bool pitchReduced = false;
     AudioSource audioSource;
-    //public float pitchReducction;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<AudioSource>().volume = GameManager.MusicVolume / 100;
-        ShipColisionDetector.Collided += ReducePitch;
         audioSource = GetComponent<AudioSource>();
+        audioSource.volume = GameManager.MusicVolume / 100;
+        ShipColisionDetector.Collided += ReducePitch;
+        UpdatePauseSlider();
+        UpdateLoseSlider();
     }
 
     void Update()
@@ -25,23 +28,23 @@ public class AudioControler : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(pitchReduced && audioSource.pitch > 0)
-            GetComponent<AudioSource>().pitch -= 0.02f;
+        if (pitchReduced && audioSource.pitch > 0)
+            audioSource.pitch -= 0.02f;
         else if (!pitchReduced && audioSource.pitch < 1)
-            GetComponent<AudioSource>().pitch += 0.03f;
+            audioSource.pitch += 0.03f;
     }
 
     public void OnPauseVolumeChange()
     {
         GameManager.MusicVolume = PauseVolumeSlide.value;
-        GetComponent<AudioSource>().volume = GameManager.MusicVolume / 100;
-        UpdatLoseSlider();
+        audioSource.volume = GameManager.MusicVolume / 100;
+        UpdateLoseSlider();
     }
 
     public void OnLoseVolumeChange()
     {
         GameManager.MusicVolume = LoseVolumeSlide.value;
-        GetComponent<AudioSource>().volume = GameManager.MusicVolume / 100;
+        audioSource.volume = GameManager.MusicVolume / 100;
         UpdatePauseSlider();
     }
 
@@ -50,7 +53,7 @@ public class AudioControler : MonoBehaviour
         PauseVolumeSlide.value = GameManager.MusicVolume;
     }
 
-    void UpdatLoseSlider()
+    void UpdateLoseSlider()
     {
         LoseVolumeSlide.value = GameManager.MusicVolume;
     }
