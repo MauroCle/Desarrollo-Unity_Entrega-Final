@@ -2,15 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject pausePanel;
     [SerializeField] GameObject deathScreen;
+    [SerializeField] TextMeshProUGUI pauseHighscoreText;
+    [SerializeField] TextMeshProUGUI loseHighscoreText;
 
     void Start()
     {
-
+        ScoreManager.onNewHighscore += HighscoreSet;
+        HighscoreSet();
     }
 
     void Update()
@@ -51,5 +55,16 @@ public class PauseMenu : MonoBehaviour
     {
         pausePanel.SetActive(false);
         GameManager.Pause = false;
+    }
+
+    private void HighscoreSet()
+    {
+        pauseHighscoreText.text = "HIGHSCORE: " + PlayerPrefs.GetInt("Highscore", 0).ToString();
+        loseHighscoreText.text = "HIGHSCORE: " + PlayerPrefs.GetInt("Highscore", 0).ToString();
+    }
+
+    private void OnDisable()
+    {
+        ScoreManager.onNewHighscore -= HighscoreSet;
     }
 }

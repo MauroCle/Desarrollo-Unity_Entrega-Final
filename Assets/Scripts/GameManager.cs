@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
 
     private void OnDisable()
     {
-        ShipColisionDetector.Collided += GameOver;
+        ShipColisionDetector.Collided -= GameOver;
     }
 
     void UpdateDistortion()

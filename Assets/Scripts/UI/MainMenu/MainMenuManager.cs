@@ -3,22 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class MainMenuManager : MonoBehaviour
 {
     public List<GameObject> HideableMainMenu = new List<GameObject>();
     public List<GameObject> hideableSubMenu = new List<GameObject>();
     public Slider musicVolumeSlide;
+    [SerializeField] TextMeshProUGUI highscoreText;
 
-    // Start is called before the first frame update
     void Start()
     {
         ChangeMainMenuState(true);
         ChangeSubMenuState(false);
         musicVolumeSlide.value = GameManager.MusicVolume;
+        ScoreManager.onNewHighscore += HighscoreSet;
+        HighscoreSet();
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -104,5 +106,15 @@ public class MainMenuManager : MonoBehaviour
     public void OnChangeMusicVolume()
     {
         GameManager.MusicVolume = musicVolumeSlide.value;
+    }
+
+    private void HighscoreSet()
+    {
+        highscoreText.text = "HIGHSCORE: " + PlayerPrefs.GetInt("Highscore", 0).ToString();
+    }
+
+    private void OnDisable()
+    {
+        ScoreManager.onNewHighscore -= HighscoreSet;
     }
 }

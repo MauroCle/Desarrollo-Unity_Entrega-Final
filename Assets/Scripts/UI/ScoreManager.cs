@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class ScoreManager : MonoBehaviour
     private float pointsF;
     private int pointsI;
     private string scoreMultiplier = "x";
-
+    public static Action onNewHighscore;
+ 
     void Start()
     {
         pointsF = 0;
@@ -21,6 +23,7 @@ public class ScoreManager : MonoBehaviour
     {
         ScorePointsUpdater();
         ScoreMultiplierUpdater();
+        HighscoreManager();
     }
 
     private void ScorePointsUpdater()
@@ -33,5 +36,15 @@ public class ScoreManager : MonoBehaviour
     private void ScoreMultiplierUpdater()
     {
         scoreMultiplierText.text = scoreMultiplier + PointsManager.multiplicator.ToString();
+    }
+
+    private void HighscoreManager()
+    {
+        if (pointsI > PlayerPrefs.GetInt("Highscore", 0))
+        {
+            PlayerPrefs.SetInt("Highscore", pointsI);
+            onNewHighscore?.Invoke();
+        }
+        
     }
 }
