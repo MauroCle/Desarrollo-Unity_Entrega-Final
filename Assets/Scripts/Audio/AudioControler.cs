@@ -11,7 +11,6 @@ public class AudioControler : MonoBehaviour
     AudioSource audioSource;
     public List<AudioSource> FSXAudioSources = new List<AudioSource>();
 
-    // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();

@@ -11,6 +11,8 @@ public class MainMenuManager : MonoBehaviour
     public List<GameObject> hideableSubMenu = new List<GameObject>();
     public Slider musicVolumeSlide;
     [SerializeField] TextMeshProUGUI[] highscores;
+    [SerializeField] AudioSource click;
+    [SerializeField] AudioSource music;
 
     void Start()
     {
@@ -23,7 +25,7 @@ public class MainMenuManager : MonoBehaviour
 
     void Update()
     {
-
+        music.volume = GameManager.MusicVolume / 100;
     }
 
     public void ChangeMainMenuState(bool nextState)
@@ -50,6 +52,11 @@ public class MainMenuManager : MonoBehaviour
             if (item.gameObject.name == gameobjectName)
                 item.gameObject.SetActive(nextState);
         }
+    }
+
+    public void ClickSound()
+    {
+        click.Play();
     }
 
     public void OnClicControls()

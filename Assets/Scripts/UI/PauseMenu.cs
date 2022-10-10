@@ -10,6 +10,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] GameObject deathScreen;
     [SerializeField] TextMeshProUGUI pauseHighscoreText;
     [SerializeField] TextMeshProUGUI loseHighscoreText;
+    [SerializeField] AudioSource click;
     private int buildIndex;
 
     void Start()
@@ -78,5 +79,10 @@ public class PauseMenu : MonoBehaviour
                 loseHighscoreText.text = "HIGHSCORE: " + PlayerPrefs.GetInt("HardHighscore", 0);
                 break;
         }
+    }
+
+    public void ClickSound()
+    {
+        click.Play();
     }
 }
