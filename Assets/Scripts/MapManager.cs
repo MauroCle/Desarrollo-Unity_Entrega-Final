@@ -33,13 +33,11 @@ public class MapManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                //RotateMap(RotationsDegrees * -1);
                 desiredAngleV += new Vector3(-rotationsDegrees, 0, 0);
             }
                 
             if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
             {   
-                //RotateMap(RotationsDegrees);
                 desiredAngleV += new Vector3(rotationsDegrees, 0, 0);
             }
                 

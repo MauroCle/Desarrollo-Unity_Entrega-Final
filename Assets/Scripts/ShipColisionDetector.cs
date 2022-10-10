@@ -19,9 +19,8 @@ public class ShipColisionDetector : MonoBehaviour
     {
         if (collision.gameObject.tag == "Obstacle")
         {
-            Debug.Log("Colision");
-            Collided?.Invoke();
             PlayerDeath();
+            Collided?.Invoke();
         }
     }
 
@@ -30,6 +29,7 @@ public class ShipColisionDetector : MonoBehaviour
         explosionEffect.gameObject.SetActive(true);
         propeller.gameObject.SetActive(false);
         mesh.SetActive(false);
+        
     }
 
     private void OnDisable()

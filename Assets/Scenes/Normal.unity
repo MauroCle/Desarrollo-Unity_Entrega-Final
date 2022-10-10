@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1528,8 +1528,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aedbdfb8b32f2444598903b9e4135407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseVolumeSlide: {fileID: 0}
-  LoseVolumeSlide: {fileID: 0}
+  PauseVolumeSlide: {fileID: 1447169719}
+  LoseVolumeSlide: {fileID: 1447169718}
 --- !u!82 &1371502920
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1681,6 +1681,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6882888540243466595, guid: 16754eaa13e71964e859a2b7e9e8a201, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1371502919}
+    - target: {fileID: 6882888540243466595, guid: 16754eaa13e71964e859a2b7e9e8a201, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnLoseVolumeChange
+      objectReference: {fileID: 0}
+    - target: {fileID: 6882888540243466653, guid: 16754eaa13e71964e859a2b7e9e8a201, type: 3}
+      propertyPath: m_Name
+      value: SliderLose
+      objectReference: {fileID: 0}
     - target: {fileID: 6882888541040713577, guid: 16754eaa13e71964e859a2b7e9e8a201, type: 3}
       propertyPath: m_Name
       value: InGameUI
@@ -1769,8 +1781,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6882888541815746933, guid: 16754eaa13e71964e859a2b7e9e8a201, type: 3}
+      propertyPath: m_Name
+      value: SliderPause
+      objectReference: {fileID: 0}
+    - target: {fileID: 6882888541815746939, guid: 16754eaa13e71964e859a2b7e9e8a201, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1371502919}
+    - target: {fileID: 6882888541815746939, guid: 16754eaa13e71964e859a2b7e9e8a201, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPauseVolumeChange
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16754eaa13e71964e859a2b7e9e8a201, type: 3}
+--- !u!114 &1447169718 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6882888540243466595, guid: 16754eaa13e71964e859a2b7e9e8a201, type: 3}
+  m_PrefabInstance: {fileID: 1447169717}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1447169719 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6882888541815746939, guid: 16754eaa13e71964e859a2b7e9e8a201, type: 3}
+  m_PrefabInstance: {fileID: 1447169717}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1523257581
 GameObject:
   m_ObjectHideFlags: 0

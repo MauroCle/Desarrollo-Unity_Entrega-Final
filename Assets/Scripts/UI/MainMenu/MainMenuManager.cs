@@ -56,29 +56,23 @@ public class MainMenuManager : MonoBehaviour
     {
         ChangeMainMenuState(false);
         ChangeSubMenuState(true, "Controls");
-        //  TODO
     }
 
     public void OnClosePlay()
     {
         ChangeMainMenuState(true);
-        ChangeSubMenuState(false, "Level selector");
-
-        //  TODO
+        ChangeSubMenuState(false, "Level selector"); 
     }
 
     public void OnCloseControls()
     {
         ChangeMainMenuState(true);
         ChangeSubMenuState(false, "Controls");
-
-        //  TODO
     }
 
     public void OnClicPlay()
     {
         ChangeMainMenuState(false);
-
         ChangeSubMenuState(true, "Level selector");
     }
 
