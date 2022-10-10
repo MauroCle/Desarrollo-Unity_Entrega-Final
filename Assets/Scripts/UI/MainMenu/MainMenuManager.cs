@@ -10,14 +10,14 @@ public class MainMenuManager : MonoBehaviour
     public List<GameObject> HideableMainMenu = new List<GameObject>();
     public List<GameObject> hideableSubMenu = new List<GameObject>();
     public Slider musicVolumeSlide;
-    [SerializeField] TextMeshProUGUI highscoreText;
+    [SerializeField] TextMeshProUGUI[] highscores;
 
     void Start()
     {
         ChangeMainMenuState(true);
         ChangeSubMenuState(false);
         musicVolumeSlide.value = GameManager.MusicVolume;
-        ScoreManager.onNewHighscore += HighscoreSet;
+        GameManager.onGameOver += HighscoreSet;
         HighscoreSet();
     }
 
@@ -110,11 +110,13 @@ public class MainMenuManager : MonoBehaviour
 
     private void HighscoreSet()
     {
-        highscoreText.text = "HIGHSCORE: " + PlayerPrefs.GetInt("Highscore", 0).ToString();
+        highscores[0].text = "HIGHSCORE: " + PlayerPrefs.GetInt("EasyHighscore").ToString();
+        highscores[1].text = "HIGHSCORE: " + PlayerPrefs.GetInt("NormalHighscore").ToString();
+        highscores[2].text = "HIGHSCORE: " + PlayerPrefs.GetInt("HardHighscore").ToString();
     }
 
     private void OnDisable()
     {
-        ScoreManager.onNewHighscore -= HighscoreSet;
+        GameManager.onGameOver -= HighscoreSet;
     }
 }

@@ -10,10 +10,11 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] GameObject deathScreen;
     [SerializeField] TextMeshProUGUI pauseHighscoreText;
     [SerializeField] TextMeshProUGUI loseHighscoreText;
+    private int buildIndex;
 
     void Start()
     {
-        ScoreManager.onNewHighscore += HighscoreSet;
+        buildIndex = SceneManager.GetActiveScene().buildIndex;
         HighscoreSet();
     }
 
@@ -60,14 +61,22 @@ public class PauseMenu : MonoBehaviour
         GameManager.Pause = false;
     }
 
-    private void HighscoreSet()
+    public void HighscoreSet()
     {
-        pauseHighscoreText.text = "HIGHSCORE: " + PlayerPrefs.GetInt("Highscore", 0).ToString();
-        loseHighscoreText.text = "HIGHSCORE: " + PlayerPrefs.GetInt("Highscore", 0).ToString();
-    }
-
-    private void OnDisable()
-    {
-        ScoreManager.onNewHighscore -= HighscoreSet;
+        switch (buildIndex)
+        {
+            case 1:
+                pauseHighscoreText.text = "HIGHSCORE: " + PlayerPrefs.GetInt("EasyHighscore", 0);
+                loseHighscoreText.text = "HIGHSCORE: " + PlayerPrefs.GetInt("EasyHighscore", 0);
+                break;
+            case 2:
+                pauseHighscoreText.text = "HIGHSCORE: " + PlayerPrefs.GetInt("NormalHighscore", 0);
+                loseHighscoreText.text = "HIGHSCORE: " + PlayerPrefs.GetInt("NormalHighscore", 0);
+                break;
+            case 3:
+                pauseHighscoreText.text = "HIGHSCORE: " + PlayerPrefs.GetInt("HardHighscore", 0);
+                loseHighscoreText.text = "HIGHSCORE: " + PlayerPrefs.GetInt("HardHighscore", 0);
+                break;
+        }
     }
 }

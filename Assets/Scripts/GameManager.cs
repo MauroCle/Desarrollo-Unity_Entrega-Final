@@ -44,13 +44,13 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
 
         ShipColisionDetector.Collided += GameOver;
+        SectionManager.Delete += SpeedUp;
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
 
     void Start()
     {
-        SectionManager.Delete += SpeedUp;
-        SceneManager.sceneLoaded += OnSceneLoaded;
 
         foreach (var item in tiles)
         {
@@ -62,10 +62,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (gameEnded)
-        {
-            onGameOver?.Invoke();
-        }
+
     }
 
     void SpeedUp()
@@ -87,16 +84,12 @@ public class GameManager : MonoBehaviour
     void GameOver()
     {
         gameEnded = true;
+        onGameOver?.Invoke();
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         speed = .5f;
-    }
-
-    private void OnDisable()
-    {
-        ShipColisionDetector.Collided -= GameOver;
     }
 
     void UpdateDistortion()
@@ -106,5 +99,12 @@ public class GameManager : MonoBehaviour
         {
             lensDistortionFX.intensity.value = Speed * DistorionAdjustment;
         }
+    }
+
+    private void OnDisable()
+    {
+        ShipColisionDetector.Collided -= GameOver;
+        SectionManager.Delete -= SpeedUp;
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }

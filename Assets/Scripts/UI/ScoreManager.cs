@@ -3,27 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
-using System;
 
 public class ScoreManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI scoreMultiplierText;
-    private float pointsF;
+    private PauseMenu pauseMenu;
+    private int buildIndex;
     private int pointsI;
-    private string scoreMultiplier = "x";
-    public static Action onNewHighscore;
- 
+    private float pointsF;
+
     void Start()
     {
         pointsF = 0;
+        buildIndex = SceneManager.GetActiveScene().buildIndex;
+        GameManager.onGameOver += HighscoreManager;
+        pauseMenu = GetComponent<PauseMenu>();
     }
 
     void Update()
     {
         ScorePointsUpdater();
         ScoreMultiplierUpdater();
-        HighscoreManager();
     }
 
     private void ScorePointsUpdater()
@@ -35,16 +36,39 @@ public class ScoreManager : MonoBehaviour
 
     private void ScoreMultiplierUpdater()
     {
-        scoreMultiplierText.text = scoreMultiplier + PointsManager.multiplicator.ToString();
+        scoreMultiplierText.text = "x" + PointsManager.multiplicator.ToString();
     }
 
     private void HighscoreManager()
     {
-        if (pointsI > PlayerPrefs.GetInt("Highscore", 0))
+        switch (buildIndex)
         {
-            PlayerPrefs.SetInt("Highscore", pointsI);
-            onNewHighscore?.Invoke();
+            case 1:
+                if (pointsI > PlayerPrefs.GetInt("EasyHighscore", 0))
+                {
+                    PlayerPrefs.SetInt("EasyHighscore", pointsI);
+                    pauseMenu.HighscoreSet();
+                }
+                break;
+            case 2:
+                if (pointsI > PlayerPrefs.GetInt("NormalHighscore", 0))
+                {
+                    PlayerPrefs.SetInt("NormalHighscore", pointsI);
+                    pauseMenu.HighscoreSet();
+                }
+                break;
+            case 3:
+                if (pointsI > PlayerPrefs.GetInt("HardHighscore", 0))
+                {
+                    PlayerPrefs.SetInt("HardHighscore", pointsI);
+                    pauseMenu.HighscoreSet();
+                }
+                break;
         }
-        
+    }
+
+    private void OnDisable()
+    {
+        GameManager.onGameOver -= HighscoreManager;
     }
 }
