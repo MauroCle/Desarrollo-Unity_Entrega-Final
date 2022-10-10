@@ -9,13 +9,19 @@ public class AudioControler : MonoBehaviour
     public Slider LoseVolumeSlide;
     public static bool pitchReduced = false;
     AudioSource audioSource;
-
+    public List<AudioSource> FSXAudioSources = new List<AudioSource>();
 
     // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         audioSource.volume = GameManager.MusicVolume / 100;
+
+        foreach (var item in FSXAudioSources)
+        {
+            item.volume = GameManager.MusicVolume / 100;
+        }
+
         ShipColisionDetector.Collided += ReducePitch;
         UpdatePauseSlider();
         UpdateLoseSlider();
@@ -38,6 +44,10 @@ public class AudioControler : MonoBehaviour
     {
         GameManager.MusicVolume = PauseVolumeSlide.value;
         audioSource.volume = GameManager.MusicVolume / 100;
+        foreach (var item in FSXAudioSources)
+        {
+            item.volume = GameManager.MusicVolume / 100;
+        }
         UpdateLoseSlider();
     }
 
@@ -45,6 +55,10 @@ public class AudioControler : MonoBehaviour
     {
         GameManager.MusicVolume = LoseVolumeSlide.value;
         audioSource.volume = GameManager.MusicVolume / 100;
+        foreach (var item in FSXAudioSources)
+        {
+            item.volume = GameManager.MusicVolume / 100;
+        }
         UpdatePauseSlider();
     }
 
