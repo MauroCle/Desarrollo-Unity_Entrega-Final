@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class ShipsManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class ShipsManager : MonoBehaviour
     public GameObject[] lateralShips = new GameObject[2];
     [SerializeField] ParticleSystem topShipSpawnEffect;
     [SerializeField] ParticleSystem[] lateralShipsSpawnEffect;
+    [SerializeField] AudioSource spawnSFX;
+    [SerializeField] AudioSource despawnSFX;
     bool topShipState = false;
     bool lateralShipsState = false;
     bool CentredShip = false;
@@ -17,10 +20,8 @@ public class ShipsManager : MonoBehaviour
     void Start()
     {
         mainShipAnimator = mainShip.GetComponent<Animator>();
-
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!GameManager.Pause)
@@ -52,8 +53,9 @@ public class ShipsManager : MonoBehaviour
 
     void SpawnShips()
     {
-        if (topShipState == true)
+        if (topShipState && !lateralShipsState)
         {
+            spawnSFX.Play();
             for (int i = 0; i < lateralShips.Length; i++)
             {
                 lateralShips[i].SetActive(true);
@@ -63,8 +65,9 @@ public class ShipsManager : MonoBehaviour
             PointsManager.multiplicator = 4;
 
         }
-        else
+        else if (!topShipState)
         {
+            spawnSFX.Play();
             topShip.SetActive(true);
             topShipSpawnEffect.gameObject.SetActive(true);
             topShipState = true;
@@ -76,6 +79,7 @@ public class ShipsManager : MonoBehaviour
     {
         if (lateralShipsState == true)
         {
+            despawnSFX.Play();
             for (int i = 0; i < lateralShips.Length; i++)
             {
                 lateralShips[i].SetActive(false);
@@ -86,6 +90,7 @@ public class ShipsManager : MonoBehaviour
         }
         else if (topShipState == true)
         {
+            despawnSFX.Play();
             topShip.SetActive(false);
             topShipState = false;
             PointsManager.multiplicator = 1;
@@ -94,15 +99,19 @@ public class ShipsManager : MonoBehaviour
 
     void DespawnAllShips()
     {
-        topShip.SetActive(false);
-        topShipState = false;
-        lateralShipsState = false;
-        for (int i = 0; i < lateralShips.Length; i++)
+        if (topShipState)
         {
-            lateralShips[i].gameObject.SetActive(false);
+            despawnSFX.Play();
+            topShip.SetActive(false);
+            topShipState = false;
+            lateralShipsState = false;
+            for (int i = 0; i < lateralShips.Length; i++)
+            {
+                lateralShips[i].gameObject.SetActive(false);
+            }
+            PointsManager.multiplicator = 1;
         }
-        PointsManager.multiplicator = 1;
-
+        
     }
 
     void CenterMainShip()

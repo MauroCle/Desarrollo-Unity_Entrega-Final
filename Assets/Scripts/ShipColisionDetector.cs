@@ -19,9 +19,8 @@ public class ShipColisionDetector : MonoBehaviour
     {
         if (collision.gameObject.tag == "Obstacle")
         {
-            Debug.Log("Colision");
-            Collided?.Invoke();
             PlayerDeath();
+            Collided?.Invoke();
         }
     }
 

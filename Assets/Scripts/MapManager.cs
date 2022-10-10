@@ -77,7 +77,7 @@ public class MapManager : MonoBehaviour
 
     void OnCollidedHandler()
     {
-        Invoke("PauseMap", .1f);
+        Invoke("PauseMap", 0);
     }
 
     private void OnDisable()
