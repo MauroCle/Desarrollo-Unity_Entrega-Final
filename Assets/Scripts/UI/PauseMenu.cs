@@ -45,6 +45,7 @@ public class PauseMenu : MonoBehaviour
 
     public void PlayAgain()
     {
+        AudioControler.pitchReduced = false;
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.buildIndex);
         GameManager.GameEnded = false;
@@ -53,6 +54,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ContinuePlay()
     {
+        AudioControler.pitchReduced = false;
         pausePanel.SetActive(false);
         GameManager.Pause = false;
     }

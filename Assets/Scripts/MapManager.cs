@@ -65,13 +65,12 @@ public class MapManager : MonoBehaviour
     {
         if(GameManager.Pause == false)
         {
-            //lastSpeed = GameManager.Speed;
-           // GameManager.Speed = 0;
+            AudioControler.pitchReduced = true;
             GameManager.Pause = true;
         }
         else if (GameManager.Pause == true && GameManager.GameEnded == false)
         {
-            // GameManager.Speed = lastSpeed;
+            AudioControler.pitchReduced = false;
             GameManager.Pause = false;
         }
     }
