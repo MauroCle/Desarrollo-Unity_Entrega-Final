@@ -36,6 +36,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Exit()
     {
+        AudioControler.pitchReduced = false;
         SceneManager.LoadScene(0);
     }
 
