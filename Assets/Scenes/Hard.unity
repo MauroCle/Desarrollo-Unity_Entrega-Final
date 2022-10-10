@@ -1060,6 +1060,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 80895677572133468, guid: 0a78ff7a2231f5146bbe4a35fd553b11, type: 3}
+      propertyPath: explosionSFX
+      value: 
+      objectReference: {fileID: 2071246738}
+    - target: {fileID: 203123574431594131, guid: 0a78ff7a2231f5146bbe4a35fd553b11, type: 3}
+      propertyPath: explosionSFX
+      value: 
+      objectReference: {fileID: 2071246738}
+    - target: {fileID: 5416135269167350309, guid: 0a78ff7a2231f5146bbe4a35fd553b11, type: 3}
+      propertyPath: explosionSFX
+      value: 
+      objectReference: {fileID: 2071246738}
+    - target: {fileID: 6759514275366098834, guid: 0a78ff7a2231f5146bbe4a35fd553b11, type: 3}
+      propertyPath: explosionSFX
+      value: 
+      objectReference: {fileID: 2071246738}
     - target: {fileID: 9078770250031652400, guid: 0a78ff7a2231f5146bbe4a35fd553b11, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -1986,6 +2002,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &2071246738 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 697846116950242986, guid: 737cae6ae04fc4047b60690681041e56, type: 3}
+  m_PrefabInstance: {fileID: 583921917825560585}
+  m_PrefabAsset: {fileID: 0}
 --- !u!82 &2127846112 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 583921915909565161, guid: 737cae6ae04fc4047b60690681041e56, type: 3}

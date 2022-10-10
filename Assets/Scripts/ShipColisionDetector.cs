@@ -9,7 +9,7 @@ public class ShipColisionDetector : MonoBehaviour
     [SerializeField] ParticleSystem explosionEffect;
     [SerializeField] ParticleSystem propeller;
     [SerializeField] GameObject mesh;
-
+    [SerializeField] AudioSource explosionSFX;
     void Start()
     {
         Collided += PlayerDeath;
@@ -27,6 +27,7 @@ public class ShipColisionDetector : MonoBehaviour
     void PlayerDeath()
     {
         explosionEffect.gameObject.SetActive(true);
+        explosionSFX.Play();
         propeller.gameObject.SetActive(false);
         mesh.SetActive(false);
         
