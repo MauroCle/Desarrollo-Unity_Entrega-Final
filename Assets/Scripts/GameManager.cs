@@ -59,12 +59,6 @@ public class GameManager : MonoBehaviour
 
     }
 
-
-    void Update()
-    {
-
-    }
-
     void SpeedUp()
     {
         if (speed < MaxSpeed)

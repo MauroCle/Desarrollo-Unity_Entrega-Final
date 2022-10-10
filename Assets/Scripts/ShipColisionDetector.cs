@@ -9,16 +9,10 @@ public class ShipColisionDetector : MonoBehaviour
     [SerializeField] ParticleSystem explosionEffect;
     [SerializeField] ParticleSystem propeller;
     [SerializeField] GameObject mesh;
-    // Start is called before the first frame update
+
     void Start()
     {
-        GameManager.onGameOver += PlayerDeath;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        Collided += PlayerDeath;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -27,6 +21,7 @@ public class ShipColisionDetector : MonoBehaviour
         {
             Debug.Log("Colision");
             Collided?.Invoke();
+            PlayerDeath();
         }
     }
 
@@ -39,6 +34,6 @@ public class ShipColisionDetector : MonoBehaviour
 
     private void OnDisable()
     {
-        GameManager.onGameOver -= PlayerDeath;
+        Collided -= PlayerDeath;
     }
 }

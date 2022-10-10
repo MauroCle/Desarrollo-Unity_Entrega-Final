@@ -7,12 +7,13 @@ public class ShipsManager : MonoBehaviour
     public GameObject mainShip;
     public GameObject topShip;
     public GameObject[] lateralShips = new GameObject[2];
+    [SerializeField] ParticleSystem topShipSpawnEffect;
+    [SerializeField] ParticleSystem[] lateralShipsSpawnEffect;
     bool topShipState = false;
     bool lateralShipsState = false;
     bool CentredShip = false;
     Animator mainShipAnimator;
 
-    // Start is called before the first frame update
     void Start()
     {
         mainShipAnimator = mainShip.GetComponent<Animator>();
@@ -56,6 +57,7 @@ public class ShipsManager : MonoBehaviour
             for (int i = 0; i < lateralShips.Length; i++)
             {
                 lateralShips[i].SetActive(true);
+                lateralShipsSpawnEffect[i].gameObject.SetActive(true);
             }
             lateralShipsState = true;
             PointsManager.multiplicator = 4;
@@ -64,6 +66,7 @@ public class ShipsManager : MonoBehaviour
         else
         {
             topShip.SetActive(true);
+            topShipSpawnEffect.gameObject.SetActive(true);
             topShipState = true;
             PointsManager.multiplicator = 2;
         }
